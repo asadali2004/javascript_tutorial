@@ -1,0 +1,368 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Intermediate Level Concepts | JavaScript Tutorial</title>
+  <link rel="stylesheet" href="common-styles.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Intermediate Level Concepts</h1>
+      <p class="subtitle">Level 3: Dynamic Web Applications</p>
+    </div>
+  </header>
+
+  <main>
+    <div class="content-container">
+      <div class="content-card">
+        
+        <div class="section">
+          <p>Now that you have a solid grasp of JavaScript fundamentals, it's time to explore the concepts that will allow you to build dynamic, interactive web applications. This section covers interacting with the web page, managing data, and using modern language features.</p>
+        </div>
+
+        <div class="section">
+          <h2>3.1. DOM Manipulation</h2>
+          <p>The <strong>DOM (Document Object Model)</strong> is a tree-like representation of your web page's HTML structure. JavaScript can interact with the DOM to dynamically change the content, style, and structure of a page. This is the foundation of client-side interactivity.</p>
+          
+          <div class="use-cases">
+            <h4>Real-world Use Cases:</h4>
+            <div class="use-case-item">
+              <strong>User Interfaces:</strong> Displaying a "welcome back, [user name]!" message after a user logs in
+            </div>
+            <div class="use-case-item">
+              <strong>Interactive Menus:</strong> Toggling a menu's visibility on a button click
+            </div>
+            <div class="use-case-item">
+              <strong>Dynamic Content:</strong> Adding new items to a to-do list without reloading the page
+            </div>
+            <div class="use-case-item">
+              <strong>Visual Effects:</strong> Changing the color of an element when a user hovers over it
+            </div>
+          </div>
+
+          <p>To practice DOM manipulation, you'll need a simple HTML file. Here's the structure we'll work with:</p>
+          
+          <div class="code-block">
+            <pre><code><span class="html-tag">&lt;!DOCTYPE</span> <span class="html-attribute">html</span><span class="html-tag">&gt;</span>
+<span class="html-tag">&lt;html</span> <span class="html-attribute">lang</span><span class="operator">=</span><span class="html-value">"en"</span><span class="html-tag">&gt;</span>
+<span class="html-tag">&lt;body&gt;</span>
+    <span class="html-tag">&lt;h1</span> <span class="html-attribute">id</span><span class="operator">=</span><span class="html-value">"main-title"</span><span class="html-tag">&gt;</span>Hello from HTML<span class="html-tag">&lt;/h1&gt;</span>
+    <span class="html-tag">&lt;p</span> <span class="html-attribute">class</span><span class="operator">=</span><span class="html-value">"description"</span><span class="html-tag">&gt;</span>This is a paragraph.<span class="html-tag">&lt;/p&gt;</span>
+    <span class="html-tag">&lt;button</span> <span class="html-attribute">id</span><span class="operator">=</span><span class="html-value">"my-button"</span><span class="html-tag">&gt;</span>Click Me<span class="html-tag">&lt;/button&gt;</span>
+<span class="html-tag">&lt;/body&gt;</span>
+<span class="html-tag">&lt;/html&gt;</span></code></pre>
+          </div>
+
+          <h3>DOM Selection and Manipulation</h3>
+          <p>The following JavaScript code demonstrates how to select elements and modify them:</p>
+          
+          <div class="code-block">
+            <pre><code><span class="comment">// 1. Selecting an element by its ID</span>
+<span class="keyword">const</span> <span class="variable">title</span> <span class="operator">=</span> <span class="property">document</span><span class="punctuation">.</span><span class="method">getElementById</span><span class="punctuation">(</span><span class="string">'main-title'</span><span class="punctuation">);</span>
+
+<span class="comment">// 2. Selecting elements by their class name (returns an array-like object)</span>
+<span class="keyword">const</span> <span class="variable">paragraphs</span> <span class="operator">=</span> <span class="property">document</span><span class="punctuation">.</span><span class="method">getElementsByClassName</span><span class="punctuation">(</span><span class="string">'description'</span><span class="punctuation">);</span>
+
+<span class="comment">// 3. Selecting the first element that matches a CSS selector</span>
+<span class="keyword">const</span> <span class="variable">myButton</span> <span class="operator">=</span> <span class="property">document</span><span class="punctuation">.</span><span class="method">querySelector</span><span class="punctuation">(</span><span class="string">'#my-button'</span><span class="punctuation">);</span>
+
+<span class="comment">// 4. Modifying the content of an element</span>
+<span class="variable">title</span><span class="punctuation">.</span><span class="property">textContent</span> <span class="operator">=</span> <span class="string">'Hello from JavaScript!'</span><span class="punctuation">;</span>
+
+<span class="comment">// 5. Changing an element's style</span>
+<span class="variable">title</span><span class="punctuation">.</span><span class="property">style</span><span class="punctuation">.</span><span class="property">color</span> <span class="operator">=</span> <span class="string">'blue'</span><span class="punctuation">;</span>
+<span class="variable">title</span><span class="punctuation">.</span><span class="property">style</span><span class="punctuation">.</span><span class="property">backgroundColor</span> <span class="operator">=</span> <span class="string">'#f0f0f0'</span><span class="punctuation">;</span>
+
+<span class="comment">// 6. Adding an event listener to respond to a user action</span>
+<span class="variable">myButton</span><span class="punctuation">.</span><span class="method">addEventListener</span><span class="punctuation">(</span><span class="string">'click'</span><span class="punctuation">,</span> <span class="punctuation">()</span> <span class="operator">=&gt;</span> <span class="punctuation">{</span>
+    <span class="comment">// This code runs when the button is clicked</span>
+    <span class="method">alert</span><span class="punctuation">(</span><span class="string">'Button was clicked!'</span><span class="punctuation">);</span>
+    
+    <span class="comment">// A better practice is to show a message on the page</span>
+    <span class="keyword">const</span> <span class="variable">newParagraph</span> <span class="operator">=</span> <span class="property">document</span><span class="punctuation">.</span><span class="method">createElement</span><span class="punctuation">(</span><span class="string">'p'</span><span class="punctuation">);</span>
+    <span class="variable">newParagraph</span><span class="punctuation">.</span><span class="property">textContent</span> <span class="operator">=</span> <span class="string">'You clicked the button!'</span><span class="punctuation">;</span>
+    <span class="property">document</span><span class="punctuation">.</span><span class="property">body</span><span class="punctuation">.</span><span class="method">appendChild</span><span class="punctuation">(</span><span class="variable">newParagraph</span><span class="punctuation">);</span>
+<span class="punctuation">});</span></code></pre>
+          </div>
+
+          <div class="mistakes-section">
+            <h3>Common Mistakes & Misconceptions</h3>
+            <ul>
+              <li><strong>Forgetting to wait for the DOM to load:</strong> If your script tries to access an element before it exists on the page, you'll get <code>null</code> and an error. Best practice is to place your <code>&lt;script&gt;</code> tag at the end of the <code>&lt;body&gt;</code>.</li>
+              <li><strong>Using wrong query selector:</strong> <code>document.querySelector()</code> only returns the first matching element. If you need all of them, use <code>document.querySelectorAll()</code>.</li>
+            </ul>
+          </div>
+
+          <div class="exercises-section">
+            <h3>Exercises</h3>
+            <ol>
+              <li>Create a button and a paragraph in your HTML. Write a script that changes the paragraph's text to "Button Clicked!" every time the button is clicked.</li>
+              <li>Add a <code>mouseover</code> event listener to your title element. When the mouse moves over the title, change its text color to red. When the mouse moves out (<code>mouseout</code>), change it back to black.</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>3.2. Objects and Arrays</h2>
+          <p>While primitive data types are useful, most real-world data is more complex. <strong>Objects</strong> and <strong>Arrays</strong> are fundamental structures for managing complex data in JavaScript.</p>
+          
+          <div class="highlight-box">
+            <h4>Data Structure Overview</h4>
+            <ul>
+              <li><strong>Object:</strong> A collection of key-value pairs, used to represent a single entity with multiple properties (like a person or a car)</li>
+              <li><strong>Array:</strong> A list of ordered values, used to store collections of data (like a list of users, products, or scores)</li>
+            </ul>
+          </div>
+
+          <div class="use-cases">
+            <h4>Real-world Use Cases:</h4>
+            <div class="use-case-item">
+              <strong>User Profiles:</strong> Storing a user's profile information (name, age, email) in a single object
+            </div>
+            <div class="use-case-item">
+              <strong>E-commerce:</strong> Keeping track of a list of products in an e-commerce store using an array of objects
+            </div>
+            <div class="use-case-item">
+              <strong>Data Processing:</strong> Processing a list of student scores to find the average or the highest score
+            </div>
+          </div>
+
+          <h3>Working with Objects</h3>
+          <div class="code-block">
+            <pre><code><span class="comment">// Creating an object to represent a person</span>
+<span class="keyword">const</span> <span class="variable">person</span> <span class="operator">=</span> <span class="punctuation">{</span>
+    <span class="property">firstName</span><span class="punctuation">:</span> <span class="string">'Jane'</span><span class="punctuation">,</span>
+    <span class="property">lastName</span><span class="punctuation">:</span> <span class="string">'Doe'</span><span class="punctuation">,</span>
+    <span class="property">age</span><span class="punctuation">:</span> <span class="number">28</span><span class="punctuation">,</span>
+    <span class="property">isStudent</span><span class="punctuation">:</span> <span class="boolean">false</span><span class="punctuation">,</span>
+    <span class="comment">// A method (a function inside an object)</span>
+    <span class="property">sayHello</span><span class="punctuation">:</span> <span class="keyword">function</span><span class="punctuation">()</span> <span class="punctuation">{</span>
+        <span class="keyword">return</span> <span class="template-string">`Hello, my name is <span class="template-expression">${<span class="keyword">this</span><span class="punctuation">.</span><span class="property">firstName</span>}</span>.`</span><span class="punctuation">;</span>
+    <span class="punctuation">}</span>
+<span class="punctuation">};</span>
+
+<span class="comment">// Accessing object properties</span>
+<span class="property">console</span><span class="punctuation">.</span><span class="method">log</span><span class="punctuation">(</span><span class="variable">person</span><span class="punctuation">.</span><span class="property">firstName</span><span class="punctuation">);</span> <span class="comment">// Dot notation</span>
+<span class="property">console</span><span class="punctuation">.</span><span class="method">log</span><span class="punctuation">(</span><span class="variable">person</span><span class="punctuation">[</span><span class="string">'age'</span><span class="punctuation">]);</span> <span class="comment">// Bracket notation</span>
+<span class="property">console</span><span class="punctuation">.</span><span class="method">log</span><span class="punctuation">(</span><span class="variable">person</span><span class="punctuation">.</span><span class="method">sayHello</span><span class="punctuation">());</span>
+
+<span class="comment">// Adding a new property</span>
+<span class="variable">person</span><span class="punctuation">.</span><span class="property">city</span> <span class="operator">=</span> <span class="string">'New York'</span><span class="punctuation">;</span>
+<span class="property">console</span><span class="punctuation">.</span><span class="method">log</span><span class="punctuation">(</span><span class="variable">person</span><span class="punctuation">.</span><span class="property">city</span><span class="punctuation">);</span></code></pre>
+          </div>
+
+          <h3>Working with Arrays and Array Methods</h3>
+          <div class="code-block">
+            <pre><code><span class="comment">// Creating an array of strings</span>
+<span class="keyword">const</span> <span class="variable">fruits</span> <span class="operator">=</span> <span class="punctuation">[</span><span class="string">'apple'</span><span class="punctuation">,</span> <span class="string">'banana'</span><span class="punctuation">,</span> <span class="string">'cherry'</span><span class="punctuation">];</span>
+
+<span class="comment">// Accessing array elements by index</span>
+<span class="property">console</span><span class="punctuation">.</span><span class="method">log</span><span class="punctuation">(</span><span class="variable">fruits</span><span class="punctuation">[</span><span class="number">0</span><span class="punctuation">]);</span> <span class="comment">// 'apple'</span>
+
+<span class="comment">// Adding an element to the end of an array</span>
+<span class="variable">fruits</span><span class="punctuation">.</span><span class="method">push</span><span class="punctuation">(</span><span class="string">'orange'</span><span class="punctuation">);</span>
+<span class="property">console</span><span class="punctuation">.</span><span class="method">log</span><span class="punctuation">(</span><span class="variable">fruits</span><span class="punctuation">);</span> <span class="comment">// ['apple', 'banana', 'cherry', 'orange']</span>
+
+<span class="comment">// Common Array Methods (ES6+)</span>
+<span class="keyword">const</span> <span class="variable">numbers</span> <span class="operator">=</span> <span class="punctuation">[</span><span class="number">1</span><span class="punctuation">,</span> <span class="number">2</span><span class="punctuation">,</span> <span class="number">3</span><span class="punctuation">,</span> <span class="number">4</span><span class="punctuation">,</span> <span class="number">5</span><span class="punctuation">];</span>
+
+<span class="comment">// .map() - creates a new array with transformed elements</span>
+<span class="keyword">const</span> <span class="variable">squaredNumbers</span> <span class="operator">=</span> <span class="variable">numbers</span><span class="punctuation">.</span><span class="method">map</span><span class="punctuation">(</span><span class="variable">num</span> <span class="operator">=&gt;</span> <span class="variable">num</span> <span class="operator">*</span> <span class="variable">num</span><span class="punctuation">);</span>
+<span class="property">console</span><span class="punctuation">.</span><span class="method">log</span><span class="punctuation">(</span><span class="variable">squaredNumbers</span><span class="punctuation">);</span> <span class="comment">// [1, 4, 9, 16, 25]</span>
+
+<span class="comment">// .filter() - creates a new array with elements that pass a test</span>
+<span class="keyword">const</span> <span class="variable">evenNumbers</span> <span class="operator">=</span> <span class="variable">numbers</span><span class="punctuation">.</span><span class="method">filter</span><span class="punctuation">(</span><span class="variable">num</span> <span class="operator">=&gt;</span> <span class="variable">num</span> <span class="operator">%</span> <span class="number">2</span> <span class="operator">===</span> <span class="number">0</span><span class="punctuation">);</span>
+<span class="property">console</span><span class="punctuation">.</span><span class="method">log</span><span class="punctuation">(</span><span class="variable">evenNumbers</span><span class="punctuation">);</span> <span class="comment">// [2, 4]</span>
+
+<span class="comment">// .reduce() - executes a reducer function, resulting in a single value</span>
+<span class="keyword">const</span> <span class="variable">sum</span> <span class="operator">=</span> <span class="variable">numbers</span><span class="punctuation">.</span><span class="method">reduce</span><span class="punctuation">((</span><span class="variable">accumulator</span><span class="punctuation">,</span> <span class="variable">current</span><span class="punctuation">)</span> <span class="operator">=&gt;</span> <span class="variable">accumulator</span> <span class="operator">+</span> <span class="variable">current</span><span class="punctuation">,</span> <span class="number">0</span><span class="punctuation">);</span>
+<span class="property">console</span><span class="punctuation">.</span><span class="method">log</span><span class="punctuation">(</span><span class="variable">sum</span><span class="punctuation">);</span> <span class="comment">// 15</span></code></pre>
+          </div>
+
+          <div class="mistakes-section">
+            <h3>Common Mistakes & Misconceptions</h3>
+            <ul>
+              <li><strong>Mutating const arrays/objects:</strong> You can't reassign a <code>const</code> array or object, but you can still change its contents (<code>arr.push()</code>). This is a key distinction.</li>
+              <li><strong>Confusing object properties with array indices:</strong> You access array elements by their numerical index (<code>myArray[0]</code>) and object properties by their string key (<code>myObject.myKey</code>).</li>
+            </ul>
+          </div>
+
+          <div class="exercises-section">
+            <h3>Exercises</h3>
+            <ol>
+              <li>Create an array of objects, where each object represents a book with properties like <code>title</code>, <code>author</code>, and <code>pages</code>.</li>
+              <li>Use the <code>.filter()</code> method to create a new array that only contains books with more than 300 pages.</li>
+              <li>Use the <code>.map()</code> method to create an array of just the book titles.</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>3.3. Modern ES6+ Features</h2>
+          <p><strong>ES6 (ECMAScript 2015)</strong> introduced significant changes and new syntax to make JavaScript more powerful and easier to read. These are now considered standard practice.</p>
+          
+          <div class="use-cases">
+            <h4>Key ES6+ Features:</h4>
+            <div class="use-case-item">
+              <strong>Arrow Functions:</strong> A shorter syntax for writing function expressions with different <code>this</code> behavior
+            </div>
+            <div class="use-case-item">
+              <strong>Template Literals:</strong> Easy variable interpolation and multi-line strings using backticks
+            </div>
+            <div class="use-case-item">
+              <strong>Destructuring:</strong> Unpack values from arrays or properties from objects into distinct variables
+            </div>
+            <div class="use-case-item">
+              <strong>Spread/Rest Operators:</strong> Expand iterables or collect remaining elements
+            </div>
+          </div>
+
+          <h3>Arrow Functions and Template Literals</h3>
+          <div class="code-block">
+            <pre><code><span class="comment">// Traditional function</span>
+<span class="keyword">function</span> <span class="function-name">multiply</span><span class="punctuation">(</span><span class="variable">a</span><span class="punctuation">,</span> <span class="variable">b</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+  <span class="keyword">return</span> <span class="variable">a</span> <span class="operator">*</span> <span class="variable">b</span><span class="punctuation">;</span>
+<span class="punctuation">}</span>
+
+<span class="comment">// Arrow function</span>
+<span class="keyword">const</span> <span class="variable">multiplyArrow</span> <span class="operator">=</span> <span class="punctuation">(</span><span class="variable">a</span><span class="punctuation">,</span> <span class="variable">b</span><span class="punctuation">)</span> <span class="operator">=&gt;</span> <span class="variable">a</span> <span class="operator">*</span> <span class="variable">b</span><span class="punctuation">;</span>
+<span class="property">console</span><span class="punctuation">.</span><span class="method">log</span><span class="punctuation">(</span><span class="function-name">multiplyArrow</span><span class="punctuation">(</span><span class="number">5</span><span class="punctuation">,</span> <span class="number">4</span><span class="punctuation">));</span> <span class="comment">// 20</span>
+
+<span class="comment">// Template Literals</span>
+<span class="keyword">const</span> <span class="variable">personName</span> <span class="operator">=</span> <span class="string">'John'</span><span class="punctuation">;</span>
+<span class="keyword">const</span> <span class="variable">age</span> <span class="operator">=</span> <span class="number">30</span><span class="punctuation">;</span>
+
+<span class="comment">// Regular string concatenation</span>
+<span class="keyword">const</span> <span class="variable">oldGreeting</span> <span class="operator">=</span> <span class="string">'Hello, '</span> <span class="operator">+</span> <span class="variable">personName</span> <span class="operator">+</span> <span class="string">'! You are '</span> <span class="operator">+</span> <span class="variable">age</span> <span class="operator">+</span> <span class="string">' years old.'</span><span class="punctuation">;</span>
+
+<span class="comment">// Template literal</span>
+<span class="keyword">const</span> <span class="variable">newGreeting</span> <span class="operator">=</span> <span class="template-string">`Hello, <span class="template-expression">${<span class="variable">personName</span>}</span>! You are <span class="template-expression">${<span class="variable">age</span>}</span> years old.`</span><span class="punctuation">;</span>
+<span class="property">console</span><span class="punctuation">.</span><span class="method">log</span><span class="punctuation">(</span><span class="variable">newGreeting</span><span class="punctuation">);</span></code></pre>
+          </div>
+
+          <h3>Destructuring and Spread/Rest Operators</h3>
+          <div class="code-block">
+            <pre><code><span class="comment">// Destructuring Assignment</span>
+<span class="keyword">const</span> <span class="variable">user</span> <span class="operator">=</span> <span class="punctuation">{</span> <span class="property">id</span><span class="punctuation">:</span> <span class="number">1</span><span class="punctuation">,</span> <span class="property">name</span><span class="punctuation">:</span> <span class="string">'Alice'</span><span class="punctuation">,</span> <span class="property">role</span><span class="punctuation">:</span> <span class="string">'admin'</span> <span class="punctuation">};</span>
+<span class="keyword">const</span> <span class="punctuation">{</span> <span class="variable">name</span><span class="punctuation">,</span> <span class="variable">role</span> <span class="punctuation">}</span> <span class="operator">=</span> <span class="variable">user</span><span class="punctuation">;</span> <span class="comment">// Unpacking properties from an object</span>
+<span class="property">console</span><span class="punctuation">.</span><span class="method">log</span><span class="punctuation">(</span><span class="variable">name</span><span class="punctuation">,</span> <span class="variable">role</span><span class="punctuation">);</span> <span class="comment">// 'Alice' 'admin'</span>
+
+<span class="keyword">const</span> <span class="variable">colors</span> <span class="operator">=</span> <span class="punctuation">[</span><span class="string">'red'</span><span class="punctuation">,</span> <span class="string">'green'</span><span class="punctuation">,</span> <span class="string">'blue'</span><span class="punctuation">];</span>
+<span class="keyword">const</span> <span class="punctuation">[</span><span class="variable">primary</span><span class="punctuation">,</span> <span class="variable">secondary</span><span class="punctuation">]</span> <span class="operator">=</span> <span class="variable">colors</span><span class="punctuation">;</span> <span class="comment">// Unpacking values from an array</span>
+<span class="property">console</span><span class="punctuation">.</span><span class="method">log</span><span class="punctuation">(</span><span class="variable">primary</span><span class="punctuation">,</span> <span class="variable">secondary</span><span class="punctuation">);</span> <span class="comment">// 'red' 'green'</span>
+
+<span class="comment">// Spread and Rest Operators</span>
+<span class="keyword">const</span> <span class="variable">arr1</span> <span class="operator">=</span> <span class="punctuation">[</span><span class="number">1</span><span class="punctuation">,</span> <span class="number">2</span><span class="punctuation">,</span> <span class="number">3</span><span class="punctuation">];</span>
+<span class="keyword">const</span> <span class="variable">arr2</span> <span class="operator">=</span> <span class="punctuation">[</span><span class="number">4</span><span class="punctuation">,</span> <span class="number">5</span><span class="punctuation">,</span> <span class="number">6</span><span class="punctuation">];</span>
+<span class="keyword">const</span> <span class="variable">combinedArray</span> <span class="operator">=</span> <span class="punctuation">[</span><span class="operator">...</span><span class="variable">arr1</span><span class="punctuation">,</span> <span class="operator">...</span><span class="variable">arr2</span><span class="punctuation">];</span> <span class="comment">// Spreads arr1 and arr2 into a new array</span>
+<span class="property">console</span><span class="punctuation">.</span><span class="method">log</span><span class="punctuation">(</span><span class="variable">combinedArray</span><span class="punctuation">);</span> <span class="comment">// [1, 2, 3, 4, 5, 6]</span>
+
+<span class="keyword">function</span> <span class="function-name">sumAll</span><span class="punctuation">(</span><span class="operator">...</span><span class="variable">numbers</span><span class="punctuation">)</span> <span class="punctuation">{</span> <span class="comment">// Gathers all arguments into an array</span>
+    <span class="keyword">return</span> <span class="variable">numbers</span><span class="punctuation">.</span><span class="method">reduce</span><span class="punctuation">((</span><span class="variable">total</span><span class="punctuation">,</span> <span class="variable">num</span><span class="punctuation">)</span> <span class="operator">=&gt;</span> <span class="variable">total</span> <span class="operator">+</span> <span class="variable">num</span><span class="punctuation">,</span> <span class="number">0</span><span class="punctuation">);</span>
+<span class="punctuation">}</span>
+<span class="property">console</span><span class="punctuation">.</span><span class="method">log</span><span class="punctuation">(</span><span class="function-name">sumAll</span><span class="punctuation">(</span><span class="number">1</span><span class="punctuation">,</span> <span class="number">2</span><span class="punctuation">,</span> <span class="number">3</span><span class="punctuation">,</span> <span class="number">4</span><span class="punctuation">,</span> <span class="number">5</span><span class="punctuation">));</span> <span class="comment">// 15</span></code></pre>
+          </div>
+
+          <div class="mistakes-section">
+            <h3>Common Mistakes & Misconceptions</h3>
+            <ul>
+              <li><strong>Arrow function parentheses:</strong> <code>(a, b) => a * b</code> is correct. <code>a, b => a * b</code> is a syntax error.</li>
+              <li><strong>Confusing spread vs. rest:</strong> Context determines meaning. Left side of <code>=</code> is rest, right side is spread.</li>
+            </ul>
+          </div>
+
+          <div class="exercises-section">
+            <h3>Exercises</h3>
+            <ol>
+              <li>Use destructuring to extract the <code>city</code> and <code>zipCode</code> from an object representing an address.</li>
+              <li>Write an arrow function that takes a number and returns a message telling the user if the number is even or odd.</li>
+              <li>Use the spread operator to combine three arrays into one.</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>3.4. Error Handling</h2>
+          <p>Errors are a part of programming. Learning how to handle them gracefully prevents your application from crashing and provides a better user experience.</p>
+          
+          <div class="use-cases">
+            <h4>Real-world Use Cases:</h4>
+            <div class="use-case-item">
+              <strong>Network Requests:</strong> Catching an error when a network request fails
+            </div>
+            <div class="use-case-item">
+              <strong>Form Validation:</strong> Handling invalid user input in a form
+            </div>
+            <div class="use-case-item">
+              <strong>Data Protection:</strong> Gracefully failing when a required variable is null or undefined
+            </div>
+          </div>
+
+          <div class="highlight-box">
+            <h4>Error Handling Statements</h4>
+            <ul>
+              <li><strong>try...catch:</strong> Test a block of code for errors and handle them if they occur</li>
+              <li><strong>throw:</strong> Create a custom error</li>
+              <li><strong>finally:</strong> Execute code regardless of the try/catch result</li>
+            </ul>
+          </div>
+
+          <div class="code-block">
+            <pre><code><span class="keyword">function</span> <span class="function-name">divide</span><span class="punctuation">(</span><span class="variable">a</span><span class="punctuation">,</span> <span class="variable">b</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+  <span class="keyword">try</span> <span class="punctuation">{</span>
+    <span class="keyword">if</span> <span class="punctuation">(</span><span class="variable">b</span> <span class="operator">===</span> <span class="number">0</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+      <span class="comment">// Throw a custom error if the divisor is zero</span>
+      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="function-name">Error</span><span class="punctuation">(</span><span class="string">"Division by zero is not allowed."</span><span class="punctuation">);</span>
+    <span class="punctuation">}</span>
+    <span class="keyword">const</span> <span class="variable">result</span> <span class="operator">=</span> <span class="variable">a</span> <span class="operator">/</span> <span class="variable">b</span><span class="punctuation">;</span>
+    <span class="property">console</span><span class="punctuation">.</span><span class="method">log</span><span class="punctuation">(</span><span class="template-string">`The result is: <span class="template-expression">${<span class="variable">result</span>}</span>`</span><span class="punctuation">);</span>
+  <span class="punctuation">}</span> <span class="keyword">catch</span> <span class="punctuation">(</span><span class="variable">error</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+    <span class="comment">// This block runs if an error occurs in the 'try' block</span>
+    <span class="property">console</span><span class="punctuation">.</span><span class="method">error</span><span class="punctuation">(</span><span class="template-string">`An error occurred: <span class="template-expression">${<span class="variable">error</span><span class="punctuation">.</span><span class="property">message</span>}</span>`</span><span class="punctuation">);</span>
+  <span class="punctuation">}</span> <span class="keyword">finally</span> <span class="punctuation">{</span>
+    <span class="comment">// This block always runs, regardless of whether an error occurred</span>
+    <span class="property">console</span><span class="punctuation">.</span><span class="method">log</span><span class="punctuation">(</span><span class="string">"Division attempt finished."</span><span class="punctuation">);</span>
+  <span class="punctuation">}</span>
+<span class="punctuation">}</span>
+
+<span class="function-name">divide</span><span class="punctuation">(</span><span class="number">10</span><span class="punctuation">,</span> <span class="number">2</span><span class="punctuation">);</span>  <span class="comment">// The result is: 5</span>
+<span class="function-name">divide</span><span class="punctuation">(</span><span class="number">10</span><span class="punctuation">,</span> <span class="number">0</span><span class="punctuation">);</span>  <span class="comment">// An error occurred: Division by zero is not allowed.</span></code></pre>
+          </div>
+
+          <div class="mistakes-section">
+            <h3>Common Mistakes & Misconceptions</h3>
+            <ul>
+              <li><strong>Ignoring errors:</strong> Simply wrapping code in <code>try...catch</code> without meaningful error handling is bad practice. Always log or display the error to help with debugging.</li>
+              <li><strong>Using try...catch for control flow:</strong> <code>try...catch</code> is for unexpected errors, not for regular conditional logic. Don't use it to check if a variable exists.</li>
+            </ul>
+          </div>
+
+          <div class="exercises-section">
+            <h3>Exercises</h3>
+            <ol>
+              <li>Write a function that takes an array and an index as arguments. Use a <code>try...catch</code> block to handle the case where the index is out of bounds.</li>
+              <li>Modify the <code>divide</code> function to throw a different error message if the inputs are not numbers.</li>
+              <li>Create a function that safely accesses a nested object property and returns a default value if any part of the path doesn't exist.</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="nav-buttons">
+          <a href="Beginner.html" class="back-btn">← Previous: Beginner Fundamentals</a>
+          <a href="advance.html" class="next-btn">Next: Advanced Topics →</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 JavaScript Tutorial. Building dynamic web applications!</p>
+    </div>
+  </footer>
+</body>
+</html>
+
