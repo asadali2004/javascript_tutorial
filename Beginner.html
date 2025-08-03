@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beginner Level Fundamentals | JavaScript Tutorial</title>
+  <link rel="stylesheet" href="common-styles.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Beginner Level Fundamentals</h1>
+      <p class="subtitle">Level 2: Core JavaScript Concepts</p>
+    </div>
+  </header>
+
+  <main>
+    <div class="content-container">
+      <div class="content-card">
+        
+        <div class="section">
+          <h2>2.1. Variables and Data Types</h2>
+          <p>A variable is a container for storing data. In JavaScript, you declare variables using <code>let</code>, <code>const</code>, or the older <code>var</code> keyword.</p>
+          
+          <div class="highlight-box">
+            <h4>Variable Declaration Keywords</h4>
+            <ul>
+              <li><strong>let</strong>: Reassignable variable with block scope</li>
+              <li><strong>const</strong>: Constant value (preferred when reassignment isn't needed)</li>
+              <li><strong>var</strong>: Obsolete; function-scoped (avoid using)</li>
+            </ul>
+          </div>
+
+          <h3>Primitive Data Types</h3>
+          <div class="use-cases">
+            <h4>JavaScript has 7 primitive data types:</h4>
+            <div class="use-case-item">
+              <strong>string:</strong> Text data enclosed in quotes
+            </div>
+            <div class="use-case-item">
+              <strong>number:</strong> Integers and floating-point numbers
+            </div>
+            <div class="use-case-item">
+              <strong>boolean:</strong> true or false values
+            </div>
+            <div class="use-case-item">
+              <strong>null:</strong> Intentional absence of value
+            </div>
+            <div class="use-case-item">
+              <strong>undefined:</strong> Variable declared but not assigned
+            </div>
+            <div class="use-case-item">
+              <strong>bigint:</strong> Large integers beyond Number.MAX_SAFE_INTEGER
+            </div>
+            <div class="use-case-item">
+              <strong>symbol:</strong> Unique identifiers
+            </div>
+          </div>
+
+          <div class="code-block">
+            <pre><code><span class="comment">// Variable declarations</span>
+<span class="keyword">let</span> <span class="variable">userName</span> <span class="operator">=</span> <span class="string">"Alice"</span><span class="punctuation">;</span>
+<span class="property">console</span><span class="punctuation">.</span><span class="method">log</span><span class="punctuation">(</span><span class="variable">userName</span><span class="punctuation">);</span>
+<span class="variable">userName</span> <span class="operator">=</span> <span class="string">"Bob"</span><span class="punctuation">;</span> <span class="comment">// Reassignment allowed</span>
+<span class="property">console</span><span class="punctuation">.</span><span class="method">log</span><span class="punctuation">(</span><span class="variable">userName</span><span class="punctuation">);</span>
+
+<span class="keyword">const</span> <span class="variable">userEmail</span> <span class="operator">=</span> <span class="string">"alice@example.com"</span><span class="punctuation">;</span>
+<span class="property">console</span><span class="punctuation">.</span><span class="method">log</span><span class="punctuation">(</span><span class="variable">userEmail</span><span class="punctuation">);</span>
+
+<span class="comment">// Primitive data types examples</span>
+<span class="keyword">const</span> <span class="variable">greeting</span> <span class="operator">=</span> <span class="string">"Hello, world!"</span><span class="punctuation">;</span> <span class="comment">// string</span>
+<span class="keyword">const</span> <span class="variable">pi</span> <span class="operator">=</span> <span class="number">3.14</span><span class="punctuation">;</span> <span class="comment">// number</span>
+<span class="keyword">const</span> <span class="variable">isLoggedIn</span> <span class="operator">=</span> <span class="boolean">true</span><span class="punctuation">;</span> <span class="comment">// boolean</span>
+<span class="keyword">let</span> <span class="variable">selectedItem</span> <span class="operator">=</span> <span class="null">null</span><span class="punctuation">;</span> <span class="comment">// null</span>
+<span class="keyword">let</span> <span class="variable">favoriteColor</span><span class="punctuation">;</span> <span class="comment">// undefined</span></code></pre>
+          </div>
+
+          <div class="exercises-section">
+            <h3>Exercises</h3>
+            <ol>
+              <li>Declare a <code>const</code> variable for your name and a <code>let</code> for your age. Print both to the console.</li>
+              <li>Try reassigning the <code>const</code> variable. What error do you get?</li>
+              <li>Create variables for each primitive data type and log their types using <code>typeof</code>.</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>2.2. Operators</h2>
+          <p>Operators perform actions on values and variables. JavaScript provides several types of operators for different purposes.</p>
+          
+          <div class="use-cases">
+            <h4>Types of Operators:</h4>
+            <div class="use-case-item">
+              <strong>Arithmetic:</strong> +, -, *, /, %, ** (addition, subtraction, multiplication, division, modulus, exponentiation)
+            </div>
+            <div class="use-case-item">
+              <strong>Assignment:</strong> =, +=, -=, *=, /= (assign and combine with operation)
+            </div>
+            <div class="use-case-item">
+              <strong>Comparison:</strong> ==, ===, !=, !==, >, <, >=, <= (compare values)
+            </div>
+            <div class="use-case-item">
+              <strong>Logical:</strong> && (AND), || (OR), ! (NOT)
+            </div>
+          </div>
+
+          <div class="code-block">
+            <pre><code><span class="comment">// Arithmetic operators</span>
+<span class="keyword">let</span> <span class="variable">total</span> <span class="operator">=</span> <span class="number">10</span> <span class="operator">+</span> <span class="number">5</span><span class="punctuation">;</span> <span class="comment">// 15</span>
+<span class="keyword">let</span> <span class="variable">remainder</span> <span class="operator">=</span> <span class="number">17</span> <span class="operator">%</span> <span class="number">5</span><span class="punctuation">;</span> <span class="comment">// 2</span>
+<span class="keyword">let</span> <span class="variable">power</span> <span class="operator">=</span> <span class="number">2</span> <span class="operator">**</span> <span class="number">3</span><span class="punctuation">;</span> <span class="comment">// 8</span>
+
+<span class="comment">// Assignment operators</span>
+<span class="keyword">let</span> <span class="variable">x</span> <span class="operator">=</span> <span class="number">10</span><span class="punctuation">;</span>
+<span class="variable">x</span> <span class="operator">+=</span> <span class="number">5</span><span class="punctuation">;</span> <span class="comment">// x is now 15</span>
+
+<span class="comment">// Comparison operators</span>
+<span class="keyword">const</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">5</span><span class="punctuation">;</span>
+<span class="keyword">const</span> <span class="variable">b</span> <span class="operator">=</span> <span class="string">"5"</span><span class="punctuation">;</span>
+<span class="property">console</span><span class="punctuation">.</span><span class="method">log</span><span class="punctuation">(</span><span class="variable">a</span> <span class="operator">==</span> <span class="variable">b</span><span class="punctuation">);</span>  <span class="comment">// true (loose equality)</span>
+<span class="property">console</span><span class="punctuation">.</span><span class="method">log</span><span class="punctuation">(</span><span class="variable">a</span> <span class="operator">===</span> <span class="variable">b</span><span class="punctuation">);</span> <span class="comment">// false (strict equality)</span>
+<span class="property">console</span><span class="punctuation">.</span><span class="method">log</span><span class="punctuation">(</span><span class="variable">a</span> <span class="operator">!==</span> <span class="variable">b</span><span class="punctuation">);</span> <span class="comment">// true (strict inequality)</span>
+
+<span class="comment">// Logical operators</span>
+<span class="keyword">const</span> <span class="variable">isAdmin</span> <span class="operator">=</span> <span class="boolean">true</span><span class="punctuation">;</span>
+<span class="keyword">const</span> <span class="variable">isLoggedIn</span> <span class="operator">=</span> <span class="boolean">true</span><span class="punctuation">;</span>
+<span class="keyword">const</span> <span class="variable">hasAccess</span> <span class="operator">=</span> <span class="variable">isAdmin</span> <span class="operator">&&</span> <span class="variable">isLoggedIn</span><span class="punctuation">;</span> <span class="comment">// true</span></code></pre>
+          </div>
+
+          <div class="highlight-box">
+            <h4>Important Note: == vs ===</h4>
+            <p>Always use <code>===</code> (strict equality) instead of <code>==</code> (loose equality) to avoid unexpected type coercion behavior.</p>
+          </div>
+
+          <div class="exercises-section">
+            <h3>Exercises</h3>
+            <ol>
+              <li>Create two variables <code>score1</code> and <code>score2</code>, then check if <code>score2 > score1</code></li>
+              <li>Check if a number is greater than 10 AND less than 20 using logical operators</li>
+              <li>Practice with assignment operators: start with a number and use +=, -=, *=, /=</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>2.3. Control Flow</h2>
+          <p>Control flow statements allow you to control the execution of your code based on conditions or repeat code multiple times.</p>
+
+          <h3>Conditional Statements</h3>
+          <p>Use <code>if</code>, <code>else if</code>, and <code>else</code> to execute different code blocks based on conditions.</p>
+          
+          <div class="code-block">
+            <pre><code><span class="comment">// If-else statements</span>
+<span class="keyword">const</span> <span class="variable">userAge</span> <span class="operator">=</span> <span class="number">18</span><span class="punctuation">;</span>
+<span class="keyword">if</span> <span class="punctuation">(</span><span class="variable">userAge</span> <span class="operator">>=</span> <span class="number">18</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+  <span class="property">console</span><span class="punctuation">.</span><span class="method">log</span><span class="punctuation">(</span><span class="string">"You are an adult."</span><span class="punctuation">);</span>
+<span class="punctuation">}</span> <span class="keyword">else if</span> <span class="punctuation">(</span><span class="variable">userAge</span> <span class="operator">>=</span> <span class="number">13</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+  <span class="property">console</span><span class="punctuation">.</span><span class="method">log</span><span class="punctuation">(</span><span class="string">"You are a teenager."</span><span class="punctuation">);</span>
+<span class="punctuation">}</span> <span class="keyword">else</span> <span class="punctuation">{</span>
+  <span class="property">console</span><span class="punctuation">.</span><span class="method">log</span><span class="punctuation">(</span><span class="string">"You are a child."</span><span class="punctuation">);</span>
+<span class="punctuation">}</span>
+
+<span class="comment">// Switch statement</span>
+<span class="keyword">const</span> <span class="variable">dayOfWeek</span> <span class="operator">=</span> <span class="string">"Monday"</span><span class="punctuation">;</span>
+<span class="keyword">switch</span> <span class="punctuation">(</span><span class="variable">dayOfWeek</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+  <span class="keyword">case</span> <span class="string">"Monday"</span><span class="punctuation">:</span>
+    <span class="property">console</span><span class="punctuation">.</span><span class="method">log</span><span class="punctuation">(</span><span class="string">"Start of the week."</span><span class="punctuation">);</span>
+    <span class="keyword">break</span><span class="punctuation">;</span>
+  <span class="keyword">case</span> <span class="string">"Friday"</span><span class="punctuation">:</span>
+    <span class="property">console</span><span class="punctuation">.</span><span class="method">log</span><span class="punctuation">(</span><span class="string">"End of the week!"</span><span class="punctuation">);</span>
+    <span class="keyword">break</span><span class="punctuation">;</span>
+  <span class="keyword">default</span><span class="punctuation">:</span>
+    <span class="property">console</span><span class="punctuation">.</span><span class="method">log</span><span class="punctuation">(</span><span class="string">"Regular day."</span><span class="punctuation">);</span>
+<span class="punctuation">}</span></code></pre>
+          </div>
+
+          <h3>Loops</h3>
+          <p>Loops allow you to repeat code execution multiple times.</p>
+          
+          <div class="code-block">
+            <pre><code><span class="comment">// For loop - when you know how many iterations</span>
+<span class="keyword">for</span> <span class="punctuation">(</span><span class="keyword">let</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span><span class="punctuation">;</span> <span class="variable">i</span> <span class="operator">&lt;</span> <span class="number">5</span><span class="punctuation">;</span> <span class="variable">i</span><span class="operator">++</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+  <span class="property">console</span><span class="punctuation">.</span><span class="method">log</span><span class="punctuation">(</span><span class="template-string">`For loop count: <span class="template-expression">${<span class="variable">i</span>}</span>`</span><span class="punctuation">);</span>
+<span class="punctuation">}</span>
+
+<span class="comment">// While loop - when condition-based iteration</span>
+<span class="keyword">let</span> <span class="variable">count</span> <span class="operator">=</span> <span class="number">0</span><span class="punctuation">;</span>
+<span class="keyword">while</span> <span class="punctuation">(</span><span class="variable">count</span> <span class="operator">&lt;</span> <span class="number">3</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+  <span class="property">console</span><span class="punctuation">.</span><span class="method">log</span><span class="punctuation">(</span><span class="template-string">`While loop count: <span class="template-expression">${<span class="variable">count</span>}</span>`</span><span class="punctuation">);</span>
+  <span class="variable">count</span><span class="operator">++</span><span class="punctuation">;</span>
+<span class="punctuation">}</span>
+
+<span class="comment">// Do-while loop - executes at least once</span>
+<span class="keyword">let</span> <span class="variable">num</span> <span class="operator">=</span> <span class="number">0</span><span class="punctuation">;</span>
+<span class="keyword">do</span> <span class="punctuation">{</span>
+  <span class="property">console</span><span class="punctuation">.</span><span class="method">log</span><span class="punctuation">(</span><span class="template-string">`Do-while: <span class="template-expression">${<span class="variable">num</span>}</span>`</span><span class="punctuation">);</span>
+  <span class="variable">num</span><span class="operator">++</span><span class="punctuation">;</span>
+<span class="punctuation">}</span> <span class="keyword">while</span> <span class="punctuation">(</span><span class="variable">num</span> <span class="operator">&lt;</span> <span class="number">3</span><span class="punctuation">);</span></code></pre>
+          </div>
+
+          <div class="highlight-box">
+            <h4>Loop Control</h4>
+            <ul>
+              <li><code>break</code>: Exit the loop immediately</li>
+              <li><code>continue</code>: Skip the current iteration and continue with the next</li>
+            </ul>
+          </div>
+
+          <div class="exercises-section">
+            <h3>Exercises</h3>
+            <ol>
+              <li>Print all even numbers from 0 to 10 using a for loop</li>
+              <li>Use an <code>if</code> statement to check if temperature is freezing (below 32°F)</li>
+              <li>Create a while loop that counts down from 5 to 1</li>
+              <li>Use a switch statement to convert a number (1-7) to day of the week</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>2.4. Functions</h2>
+          <p>Functions are reusable blocks of code that perform specific tasks. They help organize your code and avoid repetition.</p>
+          
+          <div class="use-cases">
+            <h4>Function Benefits:</h4>
+            <div class="use-case-item">
+              <strong>Reusability:</strong> Write once, use multiple times
+            </div>
+            <div class="use-case-item">
+              <strong>Organization:</strong> Break complex problems into smaller pieces
+            </div>
+            <div class="use-case-item">
+              <strong>Maintainability:</strong> Easier to update and debug code
+            </div>
+            <div class="use-case-item">
+              <strong>Scope:</strong> Create isolated environments for variables
+            </div>
+          </div>
+
+          <div class="code-block">
+            <pre><code><span class="comment">// Function with parameters and return value</span>
+<span class="keyword">function</span> <span class="function-name">greetUser</span><span class="punctuation">(</span><span class="variable">name</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+  <span class="keyword">return</span> <span class="template-string">`Hello, <span class="template-expression">${<span class="variable">name</span>}</span>!`</span><span class="punctuation">;</span>
+<span class="punctuation">}</span>
+
+<span class="keyword">const</span> <span class="variable">message</span> <span class="operator">=</span> <span class="function-name">greetUser</span><span class="punctuation">(</span><span class="string">"Charlie"</span><span class="punctuation">);</span>
+<span class="property">console</span><span class="punctuation">.</span><span class="method">log</span><span class="punctuation">(</span><span class="variable">message</span><span class="punctuation">);</span> <span class="comment">// "Hello, Charlie!"</span>
+
+<span class="comment">// Function without return value</span>
+<span class="keyword">function</span> <span class="function-name">sayHello</span><span class="punctuation">()</span> <span class="punctuation">{</span>
+  <span class="property">console</span><span class="punctuation">.</span><span class="method">log</span><span class="punctuation">(</span><span class="string">"Hello there!"</span><span class="punctuation">);</span>
+<span class="punctuation">}</span>
+<span class="function-name">sayHello</span><span class="punctuation">();</span> <span class="comment">// Calls the function</span>
+
+<span class="comment">// Function with multiple parameters</span>
+<span class="keyword">function</span> <span class="function-name">calculateArea</span><span class="punctuation">(</span><span class="variable">width</span><span class="punctuation">,</span> <span class="variable">height</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+  <span class="keyword">const</span> <span class="variable">area</span> <span class="operator">=</span> <span class="variable">width</span> <span class="operator">*</span> <span class="variable">height</span><span class="punctuation">;</span>
+  <span class="keyword">return</span> <span class="variable">area</span><span class="punctuation">;</span>
+<span class="punctuation">}</span>
+
+<span class="keyword">const</span> <span class="variable">roomArea</span> <span class="operator">=</span> <span class="function-name">calculateArea</span><span class="punctuation">(</span><span class="number">12</span><span class="punctuation">,</span> <span class="number">10</span><span class="punctuation">);</span>
+<span class="property">console</span><span class="punctuation">.</span><span class="method">log</span><span class="punctuation">(</span><span class="template-string">`Room area: <span class="template-expression">${<span class="variable">roomArea</span>}</span> sq ft`</span><span class="punctuation">);</span></code></pre>
+          </div>
+
+          <div class="highlight-box">
+            <h4>Function Scope</h4>
+            <p>Variables declared inside a function are only accessible within that function. This is called <strong>function scope</strong> or <strong>local scope</strong>.</p>
+            <div class="code-block">
+              <pre><code><span class="keyword">function</span> <span class="function-name">example</span><span class="punctuation">()</span> <span class="punctuation">{</span>
+  <span class="keyword">let</span> <span class="variable">localVar</span> <span class="operator">=</span> <span class="string">"I'm local"</span><span class="punctuation">;</span>
+  <span class="property">console</span><span class="punctuation">.</span><span class="method">log</span><span class="punctuation">(</span><span class="variable">localVar</span><span class="punctuation">);</span> <span class="comment">// Works fine</span>
+<span class="punctuation">}</span>
+<span class="comment">// console.log(localVar); // Error: localVar is not defined</span></code></pre>
+            </div>
+          </div>
+
+          <div class="exercises-section">
+            <h3>Exercises</h3>
+            <ol>
+              <li>Create an <code>addNumbers(a, b)</code> function that returns the sum of two numbers</li>
+              <li>Create an <code>isEven(num)</code> function that returns <code>true</code> if the number is even, <code>false</code> otherwise</li>
+              <li>Write a <code>getFullName(firstName, lastName)</code> function that returns the full name</li>
+              <li>Create a <code>calculateCircleArea(radius)</code> function using the formula π × r²</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="nav-buttons">
+          <a href="Introduction.html" class="back-btn">← Previous: Introduction</a>
+          <a href="intermediate.html" class="next-btn">Next: Intermediate Concepts →</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 JavaScript Tutorial. Keep building your skills!</p>
+    </div>
+  </footer>
+</body>
+</html>

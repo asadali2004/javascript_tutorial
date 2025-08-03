@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beginner Project Ideas - JavaScript Tutorial</title>
+    <link rel="stylesheet" href="common-styles.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>🚀 Beginner Project Ideas</h1>
+      <p>Congratulations on completing the core concepts! The best way to transition from learning syntax to thinking like a developer is to build projects.</p>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="content">
+        <div class="section">
+          <h2>1. To-Do List App</h2>
+          <p>This is a classic first project for a reason—it touches on almost every basic skill you've learned. You'll build a web page where a user can type in tasks, add them to a list, and then manage that list.</p>
+
+          <div class="highlight-box">
+            <h4>Project Features:</h4>
+            <ul>
+              <li>Input field for new tasks and a button to add them</li>
+              <li>Dynamic list items that appear on screen when tasks are added</li>
+              <li>Checkbox to mark tasks as completed</li>
+              <li>Button to remove tasks from the list entirely</li>
+              <li>JavaScript array to keep track of all tasks</li>
+            </ul>
+          </div>
+
+          <div class="use-cases">
+            <h4>Learning Outcomes:</h4>
+            <div class="use-case-item">
+              <strong>DOM Manipulation:</strong> You will learn to dynamically create, append, and remove HTML elements from the page. This is a crucial skill for any interactive web application
+            </div>
+            <div class="use-case-item">
+              <strong>Event Handling:</strong> You'll practice listening for events like a button click or a user pressing the Enter key in an input field
+            </div>
+            <div class="use-case-item">
+              <strong>Data Structures:</strong> You'll get hands-on experience using arrays to manage a collection of data (your to-do items)
+            </div>
+            <div class="use-case-item">
+              <strong>Control Flow:</strong> You will use loops (e.g., a for loop) to iterate through the array of tasks and display them on the page
+            </div>
+          </div>
+
+          <div class="code-block">
+            <pre><code><span class="comment">// Example: Basic to-do functionality</span>
+<span class="keyword">let</span> <span class="variable">tasks</span> <span class="operator">=</span> <span class="punctuation">[];</span>
+
+<span class="keyword">function</span> <span class="function-name">addTask</span><span class="punctuation">(</span><span class="variable">taskText</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+  <span class="keyword">const</span> <span class="variable">task</span> <span class="operator">=</span> <span class="punctuation">{</span>
+    <span class="property">id</span><span class="punctuation">:</span> <span class="property">Date</span><span class="punctuation">.</span><span class="method">now</span><span class="punctuation">(),</span>
+    <span class="property">text</span><span class="punctuation">:</span> <span class="variable">taskText</span><span class="punctuation">,</span>
+    <span class="property">completed</span><span class="punctuation">:</span> <span class="keyword">false</span>
+  <span class="punctuation">};</span>
+  
+  <span class="variable">tasks</span><span class="punctuation">.</span><span class="method">push</span><span class="punctuation">(</span><span class="variable">task</span><span class="punctuation">);</span>
+  <span class="function-name">renderTasks</span><span class="punctuation">();</span>
+<span class="punctuation">}</span></code></pre>
+          </div>
+
+          <p><strong>Real-world Example:</strong> The skills you gain from this project are the foundation for any interactive list-based application. Think of a shopping cart on an e-commerce site, an email inbox, or a list of search results.</p>
+        </div>
+
+        <div class="section">
+          <h2>2. Simple Calculator</h2>
+          <p>This project challenges you to handle user input and perform logical operations based on a series of clicks.</p>
+
+          <div class="highlight-box">
+            <h4>Project Features:</h4>
+            <ul>
+              <li>Interface with buttons for numbers (0-9) and operators (+, -, *, /)</li>
+              <li>Equals button and a display screen</li>
+              <li>JavaScript logic to capture numbers and operators</li>
+              <li>Calculation functionality when equals button is pressed</li>
+            </ul>
+          </div>
+
+          <div class="use-cases">
+            <h4>Learning Outcomes:</h4>
+            <div class="use-case-item">
+              <strong>DOM Manipulation:</strong> You'll practice reading values from buttons and updating a display element with the results
+            </div>
+            <div class="use-case-item">
+              <strong>Event Handling:</strong> You'll attach event listeners to multiple buttons and use event properties to identify which button was clicked
+            </div>
+            <div class="use-case-item">
+              <strong>Functions:</strong> You will write functions to handle each type of calculation (add, subtract, multiply, divide)
+            </div>
+            <div class="use-case-item">
+              <strong>Variables:</strong> You will use variables to store the current number, the previous number, and the selected operator
+            </div>
+          </div>
+
+          <div class="code-block">
+            <pre><code><span class="comment">// Example: Calculator logic</span>
+<span class="keyword">let</span> <span class="variable">currentNumber</span> <span class="operator">=</span> <span class="string">''</span><span class="punctuation">;</span>
+<span class="keyword">let</span> <span class="variable">previousNumber</span> <span class="operator">=</span> <span class="string">''</span><span class="punctuation">;</span>
+<span class="keyword">let</span> <span class="variable">operator</span> <span class="operator">=</span> <span class="keyword">null</span><span class="punctuation">;</span>
+
+<span class="keyword">function</span> <span class="function-name">calculate</span><span class="punctuation">(</span><span class="variable">prev</span><span class="punctuation">,</span> <span class="variable">current</span><span class="punctuation">,</span> <span class="variable">operation</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+  <span class="keyword">const</span> <span class="variable">prevNum</span> <span class="operator">=</span> <span class="function-name">parseFloat</span><span class="punctuation">(</span><span class="variable">prev</span><span class="punctuation">);</span>
+  <span class="keyword">const</span> <span class="variable">currentNum</span> <span class="operator">=</span> <span class="function-name">parseFloat</span><span class="punctuation">(</span><span class="variable">current</span><span class="punctuation">);</span>
+  
+  <span class="keyword">switch</span> <span class="punctuation">(</span><span class="variable">operation</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+    <span class="keyword">case</span> <span class="string">'+'</span><span class="punctuation">:</span>
+      <span class="keyword">return</span> <span class="variable">prevNum</span> <span class="operator">+</span> <span class="variable">currentNum</span><span class="punctuation">;</span>
+    <span class="keyword">case</span> <span class="string">'-'</span><span class="punctuation">:</span>
+      <span class="keyword">return</span> <span class="variable">prevNum</span> <span class="operator">-</span> <span class="variable">currentNum</span><span class="punctuation">;</span>
+    <span class="comment">// ... more operations</span>
+  <span class="punctuation">}</span>
+<span class="punctuation">}</span></code></pre>
+          </div>
+
+          <p><strong>Real-world Example:</strong> The logic of this project is used in any application that requires user input to trigger a specific action or calculation. Examples include a tip calculator, a mortgage calculator, or a point-of-sale system.</p>
+        </div>
+
+        <div class="section">
+          <h2>3. Basic "Guess the Number" Game</h2>
+          <p>This project is an excellent way to practice conditional logic and random number generation.</p>
+
+          <div class="highlight-box">
+            <h4>Project Features:</h4>
+            <ul>
+              <li>Program generates a random number between a set range (e.g., 1-100)</li>
+              <li>User inputs a guess via input field</li>
+              <li>Program tells them if their guess is too high, too low, or correct</li>
+              <li>Game keeps track of how many guesses the user has made</li>
+            </ul>
+          </div>
+
+          <div class="use-cases">
+            <h4>Learning Outcomes:</h4>
+            <div class="use-case-item">
+              <strong>Variables:</strong> You'll use a variable to store the secret number and another to track the number of guesses
+            </div>
+            <div class="use-case-item">
+              <strong>Control Flow:</strong> This project is centered on if, else if, and else statements to compare the user's guess to the secret number
+            </div>
+            <div class="use-case-item">
+              <strong>DOM Manipulation:</strong> You'll update a paragraph or a span element to give the user hints or congratulate them on winning
+            </div>
+            <div class="use-case-item">
+              <strong>Event Handling:</strong> You will listen for a button click to process the user's guess
+            </div>
+          </div>
+
+          <div class="code-block">
+            <pre><code><span class="comment">// Example: Number guessing game logic</span>
+<span class="keyword">let</span> <span class="variable">secretNumber</span> <span class="operator">=</span> <span class="property">Math</span><span class="punctuation">.</span><span class="method">floor</span><span class="punctuation">(</span><span class="property">Math</span><span class="punctuation">.</span><span class="method">random</span><span class="punctuation">()</span> <span class="operator">*</span> <span class="number">100</span><span class="punctuation">)</span> <span class="operator">+</span> <span class="number">1</span><span class="punctuation">;</span>
+<span class="keyword">let</span> <span class="variable">guessCount</span> <span class="operator">=</span> <span class="number">0</span><span class="punctuation">;</span>
+
+<span class="keyword">function</span> <span class="function-name">checkGuess</span><span class="punctuation">(</span><span class="variable">userGuess</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+  <span class="variable">guessCount</span><span class="operator">++</span><span class="punctuation">;</span>
+  
+  <span class="keyword">if</span> <span class="punctuation">(</span><span class="variable">userGuess</span> <span class="operator">===</span> <span class="variable">secretNumber</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+    <span class="keyword">return</span> <span class="template-string">`Congratulations! You got it in ${<span class="variable">guessCount</span>} guesses!`</span><span class="punctuation">;</span>
+  <span class="punctuation">}</span> <span class="keyword">else if</span> <span class="punctuation">(</span><span class="variable">userGuess</span> <span class="operator">&lt;</span> <span class="variable">secretNumber</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+    <span class="keyword">return</span> <span class="string">'Too low! Try higher.'</span><span class="punctuation">;</span>
+  <span class="punctuation">}</span> <span class="keyword">else</span> <span class="punctuation">{</span>
+    <span class="keyword">return</span> <span class="string">'Too high! Try lower.'</span><span class="punctuation">;</span>
+  <span class="punctuation">}</span>
+<span class="punctuation">}</span></code></pre>
+          </div>
+
+          <p><strong>Real-world Example:</strong> The core concept of comparing a user's input to a target value is found in password validation, form data validation, and even in the logic of game AI. The ability to give feedback based on user actions is a foundational skill for building any interactive experience.</p>
+        </div>
+
+        <div class="section">
+          <h2>4. Color-Switcher</h2>
+          <p>This project is a simple but visually satisfying introduction to event-driven programming and styling with JavaScript.</p>
+
+          <div class="highlight-box">
+            <h4>Project Features:</h4>
+            <ul>
+              <li>Set of buttons with different color labels like "Red," "Green," and "Blue"</li>
+              <li>When user clicks a button, JavaScript changes the background color of the entire web page</li>
+              <li>Immediate visual feedback from user actions</li>
+            </ul>
+          </div>
+
+          <div class="use-cases">
+            <h4>Learning Outcomes:</h4>
+            <div class="use-case-item">
+              <strong>DOM Manipulation:</strong> You'll get comfortable with selecting the document.body element and changing its style property
+            </div>
+            <div class="use-case-item">
+              <strong>Event Handling:</strong> You'll practice adding event listeners to multiple elements. This project is a great way to understand how to write a generic function that works for any button you click
+            </div>
+            <div class="use-case-item">
+              <strong>Functions:</strong> You can write a single function that takes a color as a parameter and sets the page's background color, which is a good exercise in writing reusable code
+            </div>
+          </div>
+
+          <div class="code-block">
+            <pre><code><span class="comment">// Example: Color switcher functionality</span>
+<span class="keyword">function</span> <span class="function-name">changeBackgroundColor</span><span class="punctuation">(</span><span class="variable">color</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+  <span class="variable">document</span><span class="punctuation">.</span><span class="property">body</span><span class="punctuation">.</span><span class="property">style</span><span class="punctuation">.</span><span class="property">backgroundColor</span> <span class="operator">=</span> <span class="variable">color</span><span class="punctuation">;</span>
+<span class="punctuation">}</span>
+
+<span class="comment">// Add event listeners to color buttons</span>
+<span class="variable">document</span><span class="punctuation">.</span><span class="method">getElementById</span><span class="punctuation">(</span><span class="string">'red-btn'</span><span class="punctuation">)</span><span class="punctuation">.</span><span class="method">addEventListener</span><span class="punctuation">(</span><span class="string">'click'</span><span class="punctuation">,</span> <span class="punctuation">()</span> <span class="operator">=&gt;</span> <span class="punctuation">{</span>
+  <span class="function-name">changeBackgroundColor</span><span class="punctuation">(</span><span class="string">'#ff6b6b'</span><span class="punctuation">);</span>
+<span class="punctuation">});</span>
+
+<span class="variable">document</span><span class="punctuation">.</span><span class="method">getElementById</span><span class="punctuation">(</span><span class="string">'blue-btn'</span><span class="punctuation">)</span><span class="punctuation">.</span><span class="method">addEventListener</span><span class="punctuation">(</span><span class="string">'click'</span><span class="punctuation">,</span> <span class="punctuation">()</span> <span class="operator">=&gt;</span> <span class="punctuation">{</span>
+  <span class="function-name">changeBackgroundColor</span><span class="punctuation">(</span><span class="string">'#4ecdc4'</span><span class="punctuation">);</span>
+<span class="punctuation">});</span></code></pre>
+          </div>
+
+          <p><strong>Real-world Example:</strong> The same principle of changing an element's style on a user's action is used everywhere. This could be a dark mode toggle on a website, highlighting an active menu item, or applying different color themes to a user's profile. It's the most direct way to see the impact of your code on the visual aspect of a web page.</p>
+        </div>
+
+        <div class="nav-buttons">
+          <a href="advance.html" class="back-btn">← Previous: Advanced JavaScript</a>
+          <a href="next.html" class="next-btn">Next: What to Learn Next →</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 JavaScript Tutorial. Start building your first project today!</p>
+    </div>
+  </footer>
+</body>
+</html>

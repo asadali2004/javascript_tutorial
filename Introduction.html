@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to JavaScript - JavaScript Tutorial</title>
+    <link rel="stylesheet" href="common-styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Introduction to JavaScript</h1>
+            <p class="subtitle">Level 1 - Getting Started with JavaScript</p>
+        </div>
+    </header>
+
+    <main>
+        <div class="content-container">
+            <div class="content-card">
+                <div class="section">
+                    <p>This section will introduce you to JavaScript, explain why it's so important for modern web development, and walk you through the simple steps to start coding.</p>
+                </div>
+
+                <div class="section">
+                    <h2>1.1. What is JavaScript?</h2>
+                    <p>JavaScript (often abbreviated as JS) is a high-level, interpreted programming language primarily used to make web pages interactive. When you see a website with dynamic content—like an image carousel, a form that validates your input, or a page that updates without a full reload—you're seeing JavaScript in action.</p>
+                    
+                    <div class="use-cases">
+                        <h4>Real-world use cases:</h4>
+                        
+                        <div class="use-case-item">
+                            <strong>Web Development:</strong> JavaScript is a core technology of the World Wide Web, alongside HTML and CSS. It's used for everything from small animations to complex Single-Page Applications (SPAs) like Gmail or Google Maps.
+                        </div>
+                        
+                        <div class="use-case-item">
+                            <strong>Server-Side Development:</strong> With Node.js, JavaScript can be used to build back-end services, APIs, and even run servers.
+                        </div>
+                        
+                        <div class="use-case-item">
+                            <strong>Mobile App Development:</strong> Frameworks like React Native and NativeScript allow developers to build mobile apps for iOS and Android using JavaScript.
+                        </div>
+                        
+                        <div class="use-case-item">
+                            <strong>Game Development:</strong> JavaScript, combined with HTML5 Canvas or WebGL, is used to create browser-based games.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>1.2. Setting Up Your Development Environment</h2>
+                    <p>You don't need to install a complex program to start with JavaScript. All you need is a text editor and a web browser.</p>
+                    
+                    <p><strong>Text Editor:</strong> Any text editor will work, but we highly recommend a dedicated code editor like Visual Studio Code (VS Code), which is free and has many features to help you write code.</p>
+                    
+                    <p><strong>Web Browser:</strong> You already have a modern web browser (like Chrome, Firefox, or Edge). It comes with a built-in JavaScript engine that executes your code.</p>
+                    
+                    <p>To run your code, you'll create a simple HTML file that "links" to your JavaScript file.</p>
+                    
+                    <div class="setup-steps">
+                        <ol>
+                            <li>Create a new folder on your computer for this project.</li>
+                            <li>Inside the folder, create a new file named <code>index.html</code>.</li>
+                            <li>Also, create a new file named <code>script.js</code> in the same folder.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>1.3. Your First JavaScript Program: "Hello, World!"</h2>
+                    <p>The traditional "Hello, World!" program is a great way to verify that your setup is working. We will use the <code>console.log()</code> function, which is a fundamental tool for developers to print messages to the browser's developer console for debugging.</p>
+                    
+                    <p>Here is the complete code for your <code>index.html</code> file. It includes the <code>script.js</code> file, which is where your JavaScript code will live.</p>
+                    
+                    <div class="code-block">
+                        <pre><code><span class="html-tag">&lt;!DOCTYPE</span> <span class="html-attribute">html</span><span class="html-tag">&gt;</span>
+<span class="html-tag">&lt;html</span> <span class="html-attribute">lang</span><span class="operator">=</span><span class="html-value">"en"</span><span class="html-tag">&gt;</span>
+<span class="html-tag">&lt;head&gt;</span>
+    <span class="html-tag">&lt;meta</span> <span class="html-attribute">charset</span><span class="operator">=</span><span class="html-value">"UTF-8"</span><span class="html-tag">&gt;</span>
+    <span class="html-tag">&lt;meta</span> <span class="html-attribute">name</span><span class="operator">=</span><span class="html-value">"viewport"</span> <span class="html-attribute">content</span><span class="operator">=</span><span class="html-value">"width=device-width, initial-scale=1.0"</span><span class="html-tag">&gt;</span>
+    <span class="html-tag">&lt;title&gt;</span>My First JavaScript Program<span class="html-tag">&lt;/title&gt;</span>
+<span class="html-tag">&lt;/head&gt;</span>
+<span class="html-tag">&lt;body&gt;</span>
+    <span class="html-tag">&lt;h1&gt;</span>My First JavaScript Program<span class="html-tag">&lt;/h1&gt;</span>
+    <span class="html-tag">&lt;p&gt;</span>Open the browser's developer console to see the output.<span class="html-tag">&lt;/p&gt;</span>
+
+    <span class="html-comment">&lt;!--
+        This script tag links to your external JavaScript file.
+        It's best practice to place this at the end of the body tag
+        to ensure the HTML content has loaded before the script runs.
+    --&gt;</span>
+    <span class="html-tag">&lt;script</span> <span class="html-attribute">src</span><span class="operator">=</span><span class="html-value">"script.js"</span><span class="html-tag">&gt;&lt;/script&gt;</span>
+<span class="html-tag">&lt;/body&gt;</span>
+<span class="html-tag">&lt;/html&gt;</span></code></pre>
+                    </div>
+                    
+                    <div class="highlight-box">
+                        <h4>How to Run the Code</h4>
+                        <ol>
+                            <li>Save both the <code>index.html</code> and <code>script.js</code> files.</li>
+                            <li>Navigate to your project folder and double-click on <code>index.html</code>. It will open in your default web browser.</li>
+                            <li>To see the output, you need to open the browser's developer console. You can usually do this by right-clicking on the page and selecting "Inspect," or by using a keyboard shortcut (e.g., F12 on Windows, or Cmd + Option + J on macOS).</li>
+                            <li>In the developer console panel, click on the "Console" tab. You should see the message "Hello, World!".</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="mistakes-section">
+                    <h3>Common Mistakes and Misconceptions</h3>
+                    <ul>
+                        <li><strong>Forgetting the &lt;script&gt; tag:</strong> The browser won't know to load your JavaScript file if you don't include the <code>&lt;script src="script.js"&gt;&lt;/script&gt;</code> line in your HTML.</li>
+                        <li><strong>Incorrect path:</strong> Double-check that the src attribute in your &lt;script&gt; tag correctly points to your JavaScript file. If the files are in the same folder, <code>src="script.js"</code> is correct.</li>
+                        <li><strong>Thinking console.log() is a visual part of the page:</strong> The <code>console.log()</code> output is only visible in the developer console, not on the web page itself.</li>
+                    </ul>
+                </div>
+
+                <div class="exercises-section">
+                    <h3>Exercises</h3>
+                    <ol>
+                        <li><strong>Change the message:</strong> Edit your <code>script.js</code> file to print a different message, such as "Hello, [Your Name]!".</li>
+                        <li><strong>Log more things:</strong> Add more <code>console.log()</code> statements to your script to print different types of information, like a number (<code>console.log(42);</code>) or a simple calculation (<code>console.log(5 + 3);</code>).</li>
+                    </ol>
+                </div>
+
+                <div class="nav-buttons">
+                    <a href="index.html" class="back-btn">← Back to Home</a>
+                    <a href="beginner.html" class="next-btn">Next: Beginner Fundamentals →</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 JavaScript Tutorial. Master the language that powers the web.</p>
+        </div>
+    </footer>
+</body>
+</html>
